@@ -41,6 +41,7 @@ def get_cookies():
     client.close()
     return client.cookies
 
+
 def user_page(id_user, headers, cookies, timeout=60):
     client = httpx.Client(
         headers=headers,
