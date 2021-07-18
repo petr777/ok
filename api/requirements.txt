@@ -1,0 +1,6 @@
+flask
+gunicorn
+httpx
+scrapy
+flask-restful
+python-dotenv

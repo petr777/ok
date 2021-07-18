@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  api:
+    container_name: api_ok
+    restart: always
+    build: ./api
+    volumes: ['./api:/api']
+    networks:
+      - apinetwork
+    expose:
+      - "5000"
+    ports:
+      - "8080:5000"
+
+networks:
+  apinetwork:
