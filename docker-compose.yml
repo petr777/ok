@@ -5,8 +5,8 @@ services:
   api:
     container_name: api_ok
     restart: always
-    build: ./api
-    volumes: ['./api:/api']
+    build: ./
+#    volumes: ['./api:/api']
     networks:
       - apinetwork
     expose:

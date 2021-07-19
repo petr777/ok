@@ -7,7 +7,7 @@ import os
 import httpx
 from urllib.parse import urlparse
 from dotenv import load_dotenv
-import json
+
 
 load_dotenv()
 
@@ -35,9 +35,6 @@ def get_cookies():
             headers=headers,
             data=data
         )
-
-    with open(f'{os.getenv("USER_OK")}.json', 'w') as f:
-        json.dump(dict(client.cookies), f)
     client.close()
     return client.cookies
 
@@ -135,8 +132,7 @@ async def main(args):
 
     try:
         await asyncio.wait_for(eternity(args.limit), timeout=args.timeout)
-        return all_user[:args.limit]
-    except asyncio.TimeoutError:
+    finally:
         return all_user[:args.limit]
 
 
